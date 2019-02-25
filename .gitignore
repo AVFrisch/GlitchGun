@@ -1,2 +1,7 @@
 Library/
 Temp/
+obj/Debug/build.force
+obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
+.vs/Glitchgun/DesignTimeBuild/.dtbcache
+obj/Debug/
+.vs/Glitchgun/

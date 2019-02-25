@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
+
+        if (Input.GetMouseButton(0))
+            RotateToMouse();
+
+
     }
 
     void FixedUpdate()
@@ -52,4 +57,14 @@ public class PlayerController : MonoBehaviour
 
         rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -tilt);
     }
+
+    void RotateToMouse()
+    {
+        //Camera is not define object
+        Vector3 v3T = Input.mousePosition;
+        v3T.z = Mathf.Abs(Camera.main.transform.position.y - transform.position.y);
+        v3T = Camera.main.ScreenToWorldPoint(v3T);
+        transform.LookAt(v3T);
+    }
+
 }

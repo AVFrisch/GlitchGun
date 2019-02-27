@@ -8,5 +8,6 @@ public class Mover : MonoBehaviour
     void Start()
     {
         GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, speed);
+
     }
 }

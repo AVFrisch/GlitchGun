@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private float nextFire;
 
+    private Vector3 mousePos;
+
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
@@ -34,8 +36,14 @@ public class PlayerController : MonoBehaviour
             GetComponent<AudioSource>().Play();
         }
 
-        if (Input.GetMouseButton(0))
-            RotateToMouse();
+
+        //mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z - transform.position.z));
+        //transform.LookAt(mousePos);
+
+        Vector3 v3T = Input.mousePosition;
+        v3T.z = Mathf.Abs(Camera.main.transform.position.y - transform.position.y);
+        v3T = Camera.main.ScreenToWorldPoint(v3T);
+        transform.LookAt(v3T);
 
 
     }
@@ -58,13 +66,5 @@ public class PlayerController : MonoBehaviour
         rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -tilt);
     }
 
-    void RotateToMouse()
-    {
-        //Camera is not define object
-        Vector3 v3T = Input.mousePosition;
-        v3T.z = Mathf.Abs(Camera.main.transform.position.y - transform.position.y);
-        v3T = Camera.main.ScreenToWorldPoint(v3T);
-        transform.LookAt(v3T);
-    }
 
 }

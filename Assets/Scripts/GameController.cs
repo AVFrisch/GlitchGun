@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     public GameObject hazard;
     public Vector3 spawnValues;
+    private Vector3 direction;
     public int hazardCount;
     public float spawnWait;
     public float startWait;

@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            print("---------------ShotSpawnShot: " + shotSpawn.position + " " + shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
 
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
         v3T.z = Mathf.Abs(Camera.main.transform.position.y - transform.position.y);
         v3T = Camera.main.ScreenToWorldPoint(v3T);
         transform.LookAt(v3T);
+
 
 
     }

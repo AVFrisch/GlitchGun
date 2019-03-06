@@ -30,11 +30,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        Vector3 v3T = Input.mousePosition;
+        v3T.z = Mathf.Abs(Camera.main.transform.position.y - transform.position.y);
+        v3T = Camera.main.ScreenToWorldPoint(v3T);
+        transform.LookAt(v3T);
+
+
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-            print("---------------ShotSpawnShot: " + shotSpawn.position + " " + shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
 
@@ -48,13 +54,6 @@ public class PlayerController : MonoBehaviour
 
         //mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z - transform.position.z));
         //transform.LookAt(mousePos);
-
-        Vector3 v3T = Input.mousePosition;
-        v3T.z = Mathf.Abs(Camera.main.transform.position.y - transform.position.y);
-        v3T = Camera.main.ScreenToWorldPoint(v3T);
-        transform.LookAt(v3T);
-
-
 
     }
 

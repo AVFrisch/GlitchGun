@@ -12,12 +12,8 @@ public class AngledMover : MonoBehaviour
         Vector3 v3T = Input.mousePosition;
         v3T.z = Mathf.Abs(Camera.main.transform.position.y - transform.position.y);
         v3T = Camera.main.ScreenToWorldPoint(v3T);
-
-        print("---------------BoltPosPre: " + GetComponent<Rigidbody>().position + ", " + GetComponent<Rigidbody>().rotation);
-
         transform.LookAt(v3T);
 
-        print("---------------BoltPosPost: " + GetComponent<Rigidbody>().position + ", " + GetComponent<Rigidbody>().rotation);
 
     }
 

@@ -10,11 +10,6 @@ public class Mover : MonoBehaviour
         //GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, speed);
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
 
-        if (gameObject.transform.position.z < -4)
-        {
-            speed = -4;
-            //print("speed set");
-        }
 
     }
 }

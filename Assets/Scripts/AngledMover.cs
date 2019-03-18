@@ -8,6 +8,11 @@ public class AngledMover : MonoBehaviour
     void Start()
     {
 
+        if (GetComponent<Rigidbody>().name.Contains("Burst")){
+            GetComponent<Rigidbody>().transform.Rotate(0f, 10f, 0f, Space.Self);
+        }
+
+        print(GetComponent<Rigidbody>().name);
 
         Vector3 v3T = Input.mousePosition;
         v3T.z = Mathf.Abs(Camera.main.transform.position.y - transform.position.y);

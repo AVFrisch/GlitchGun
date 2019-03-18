@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject shot;
     public GameObject homingShot;
+    public GameObject burstShot;
     public Transform shotSpawn;
     public float fireRate;
 
@@ -50,6 +51,16 @@ public class PlayerController : MonoBehaviour
             Instantiate(homingShot, shotSpawn.position, shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
+
+        if (Input.GetButton("Fire3") && Time.time > nextFire)
+        {
+            print("fire3");
+            nextFire = Time.time + fireRate;
+            Instantiate(burstShot, shotSpawn.position, shotSpawn.rotation);
+            GetComponent<AudioSource>().Play();
+        }
+
+
 
 
         //mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z - transform.position.z));

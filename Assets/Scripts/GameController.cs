@@ -16,6 +16,9 @@ public class GameController : MonoBehaviour
     public Text scoreText;
     public Text restartText;
     public Text gameOverText;
+    public Text healthText;
+
+    public float health = 5;
 
     private bool gameOver;
     private bool restart;
@@ -29,6 +32,7 @@ public class GameController : MonoBehaviour
         gameOverText.text = "";
         score = 0;
         UpdateScore();
+        UpdateHealth();
         StartCoroutine(SpawnWaves());
     }
 
@@ -84,6 +88,11 @@ public class GameController : MonoBehaviour
     void UpdateScore()
     {
         scoreText.text = "Score: " + score;
+    }
+
+    public void UpdateHealth()
+    {
+        healthText.text = "Health: " + health;
     }
 
     public void GameOver()

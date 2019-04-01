@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     public Text gameOverText;
     public Text healthText;
 
-    public float health = 5;
+    public float health;
 
     private bool gameOver;
     private bool restart;
@@ -92,7 +92,7 @@ public class GameController : MonoBehaviour
 
     public void UpdateHealth()
     {
-        healthText.text = "Health: " + health;
+        healthText.text = health.ToString();
     }
 
     public void GameOver()
